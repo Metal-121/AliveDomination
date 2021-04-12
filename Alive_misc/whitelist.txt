@@ -1,0 +1,6 @@
+sfp_tgb16_ksp58,sfp_ammobox_container_2015,Box_NATO_AmmoOrd_F,ACE_medicalSupplyCrate_advanced,ACE Med Adv,ACE_medicalSupplyCrate,sfp_tgb1111,B_T_Truck_01_fuel_F,B_T_Truck_01_Repair_F,B_T_Truck_01_ammo_F,ACE_Box_Ammo,sfp_ammocrate_556,sfp_ammocrate_127,sfp_rbs17_missile_container,ACE_Box_Misc,Box_NATO_WpsLaunch_F
+
+
+[["classname","custom name","custom icon",{init code}]]
+
+[["sfp_ammobox_container_2015","AmmoContainer","Equipment",{}],["Box_NATO_AmmoOrd_F","Explosives","Equipment",{}],["ACE_medicalSupplyCrate_advanced","Medic supplies Adv","Equipment",{}],["ACE_medicalSupplyCrate","Medic supplies","Equipment",{}],["sfp_tgb16_ksp58","TGB 16 58","Car",{}],["sfp_tgb1111","TGB 1111","Car",{}]]
