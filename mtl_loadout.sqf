@@ -1,10 +1,12 @@
 //by Metal MTL_
+//Ver 1.05
 params ["_unit"];
 if (isPlayer _unit) exitwith {}; //player unit do not run
 //Not having any loadout option or other for enemy unit, exit with a custom skillset for enemy. 
 //This will be the default skillset for all other factions units when they spawn. Script that changes the skillset after that will still do their changes
 private _cunit = (typeOf _unit); // get the classname
 if (!("sfp_" in _cunit)) exitwith {
+comment "the above sfp_ is the prefix used for the units, if you have other units like RHS_xxxx this is what you need to change. For loadouts you need to get the appropriate names for all the wepons and other items you want to use. You could use any combination as long as the addons are loaded into game"
 		_unit setskill ["aimingaccuracy", (0.15 + ( random 0.2))];// get this and aimingshake higher if you don't like the prolonged firefights
 		_unit setskill ["aimingshake", (0.1 +( random 0.2))];
 		_unit setskill ["aimingspeed", (0.1 +( random 0.2))]; // time it takes for them to get their aim into focus, seperate it for snipers if you want them be better at first shot
@@ -16,17 +18,17 @@ if (!("sfp_" in _cunit)) exitwith {
 		_unit setskill ["general", (0.25 +( random 0.2))];
 };
 
-private _file = "sfp_loadouts.sqf"; //default
-private _hv = "sfp_hv_loadouts.sqf";
-private _sog = "sfp_sog_loadouts.sqf";
+//private _file = "sfp_loadouts.sqf"; //default
+//private _hv = "sfp_hv_loadouts.sqf";
+//private _sog = "sfp_sog_loadouts.sqf";
 //private _hv = false;
 //private _regular = false;
 //private _sog = false;
-if ("_hv" in _cunit) then {_file =  _hv};
-if (("_sog" in _cunit)||("_diver" in _cunit)) then {_file = _sog};
+//if ("_hv" in _cunit) then {_file =  _hv};
+//if (("_sog" in _cunit)||("_diver" in _cunit)) then {_file = _sog};
 //debug
-diag_log format["The Class = %1",_cunit];
-comment "klä av enheten";
+//diag_log format["The Class = %1",_cunit];
+comment "klä av enheten, strip the unit";
 	removeAllWeapons _unit;
 	removeAllItems _unit;
 	removeAllAssignedItems _unit;
@@ -42,7 +44,9 @@ _unit linkItem "ItemWatch";     // give watch or microDAGR not both
 //_unit linkItem "TFAR_microdagr";
 //if (_hv) then {
 	private _sfp_ar=[];
-	diag_log format ["filename %1",_file];
+//	diag_log format ["filename %1",_file];
+	//Cant get the filename into the call as a variable... need to digg into syntax .. forgot about something
+	// Run with 1 large file instead. No noticable in performance even at heavy load
 	_sfp_ar = call compile preprocessFileLineNumbers "sfp_full_loadout_list.sqf";
 //	_sfp_ar = call _file;
 	waitUntil {(count _sfp_ar >  0)};
